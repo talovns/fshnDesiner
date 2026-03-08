@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-        <style>
+    <style>
         html,
         body {
             height: 100%;
@@ -51,86 +51,106 @@
     <main class="pt-24 pb-16">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl font-light text-center mb-4">Связаться со мной</h1>
-            <p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto">Есть вопрос или хотите обсудить сотрудничество? Заполните форму ниже, и я отвечу в ближайшее время.</p>
-            
+            <p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto">Есть вопрос или хотите обсудить сотрудничество?
+                Заполните форму ниже, и я отвечу в ближайшее время.</p>
+
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Форма обратной связи -->
                 <div class="lg:w-2/3">
-                    <form class="bg-gray-50 p-8 rounded-lg">
-                        <!-- Имя -->
+                    <form id="feedbackForm" class="bg-gray-50 p-8 rounded-lg" novalidate>
+                        <!-- ФИО -->
                         <div class="mb-6">
-                            <label class="block text-sm font-medium mb-2">Имя</label>
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" placeholder="Ваше имя" required>
+                            <label class="block text-sm font-medium mb-2">ФИО</label>
+                            <input type="text" id="fullname"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                placeholder="Иванов Иван">
                         </div>
-                        
+
+                        <!-- Телефон -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Телефон</label>
+                            <input type="tel" id="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                placeholder="+7 (999) 000-00-00">
+                        </div>
+
                         <!-- Email -->
                         <div class="mb-6">
                             <label class="block text-sm font-medium mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" placeholder="your@email.com" required>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                placeholder="your@email.com">
                         </div>
-                        
+
                         <!-- Тема -->
                         <div class="mb-6">
                             <label class="block text-sm font-medium mb-2">Тема</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                            <select id="subject"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
                                 <option value="" disabled selected>Выберите тему</option>
-                                <option>Хочу заказать коллекцию</option>
-                                <option>Вопрос о сотрудничестве</option>
-                                <option>Отзыв о работе</option>
-                                <option>Другое</option>
+                                <option value="Заказ">Хочу заказать коллекцию</option>
+                                <option value="Сотрудничество">Вопрос о сотрудничестве</option>
+                                <option value="Отзыв">Отзыв о работе</option>
+                                <option value="Другое">Другое</option>
                             </select>
                         </div>
-                        
+
                         <!-- Сообщение -->
                         <div class="mb-6">
                             <label class="block text-sm font-medium mb-2">Сообщение</label>
-                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" placeholder="Ваше сообщение..." required></textarea>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                placeholder="Ваше сообщение..."></textarea>
                         </div>
-                        
+
                         <!-- Чекбокс -->
                         <div class="mb-6">
                             <label class="flex items-center">
-                                <input type="checkbox" class="w-4 h-4 text-black border-gray-300 rounded focus:ring-black" required>
-                                <span class="ml-2 text-sm text-gray-600">Согласен на обработку персональных данных</span>
+                                <input type="checkbox" id="agreement"
+                                    class="w-4 h-4 text-black border-gray-300 rounded focus:ring-black">
+                                <span class="ml-2 text-sm text-gray-600">Согласен на обработку персональных
+                                    данных</span>
                             </label>
                         </div>
-                        
+
                         <!-- Кнопка -->
-                        <button type="submit" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition font-light tracking-wider">
+                        <button type="submit"
+                            class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition font-light tracking-wider">
                             Отправить сообщение
                         </button>
                     </form>
                 </div>
-                
+
                 <!-- Контактная информация -->
                 <div class="lg:w-1/3">
                     <div class="bg-gray-50 p-8 rounded-lg">
                         <h2 class="text-2xl font-light mb-6">Контакты</h2>
-                        
+
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <i class="fas fa-map-marker-alt text-gray-400 mt-1 w-6"></i>
                                 <p class="text-gray-600">Москва, ул. Тверская, 15<br>По предварительной записи</p>
                             </div>
-                            
+
                             <div class="flex items-center">
                                 <i class="fas fa-phone text-gray-400 w-6"></i>
                                 <p class="text-gray-600">+7 (999) 123-45-67</p>
                             </div>
-                            
+
                             <div class="flex items-center">
                                 <i class="fas fa-envelope text-gray-400 w-6"></i>
                                 <p class="text-gray-600">te@mail.ru</p>
                             </div>
-                            
+
                             <div class="flex items-center">
                                 <i class="fab fa-pinterest text-gray-400 w-6"></i>
                                 <p class="text-gray-600">talovnikita291</p>
                             </div>
-                            
+
                             <div class="pt-6 mt-4 border-t border-gray-200">
                                 <h3 class="font-medium mb-2">Часы работы</h3>
-                                <p class="text-gray-600 text-sm">Пн-Пт: 10:00 - 19:00<br>Сб: по записи<br>Вс: выходной</p>
+                                <p class="text-gray-600 text-sm">Пн-Пт: 10:00 - 19:00<br>Сб: по записи<br>Вс: выходной
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -148,7 +168,8 @@
                     <p class="text-gray-400 mt-2">te@mail.ru</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://ru.pinterest.com/talovnikita291/" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-pinterest"></i></a>
+                    <a href="https://ru.pinterest.com/talovnikita291/"
+                        class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-pinterest"></i></a>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
@@ -156,5 +177,8 @@
             </div>
         </div>
     </footer>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/consoleLogger.js"></script>
 </body>
+
 </html>
